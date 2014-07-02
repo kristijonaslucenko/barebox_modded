@@ -123,6 +123,13 @@ ENTRY_FUNCTION(start_phytec_pbab01dl_1gib, r0, r1, r2)
 	start_imx6dl_phytec_pbab01_common(SZ_1G);
 }
 
+ENTRY_FUNCTION(start_phytec_pbab01dl_2gib_1bank, r0, r1, r2)
+{
+	IMD_USED(phyflex_mx6_memsize_2G);
+
+	start_imx6dl_phytec_pbab01_common(SZ_2G);
+}
+
 ENTRY_FUNCTION(start_phytec_pbab01s_512mb, r0, r1, r2)
 {
 	void *fdt;
