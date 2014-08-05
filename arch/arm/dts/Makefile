@@ -2,7 +2,8 @@ dtb-$(CONFIG_ARCH_AM33XX) += \
 	am335x-bone.dtb \
 	am335x-boneblack.dtb \
 	am335x-bone-common.dtb \
-	am335x-phytec-phycore.dtb
+	am335x-phytec-phycore.dtb \
+	am335x-phytec-phyflex.dtb
 dtb-$(CONFIG_ARCH_IMX25) += imx25-karo-tx25.dtb
 dtb-$(CONFIG_ARCH_IMX27) += imx27-phytec-phycard-s-rdk-bb.dtb \
 	imx27-phytec-phycore-rdk.dtb
@@ -63,6 +64,7 @@ pbl-$(CONFIG_MACH_PCA100) += imx27-phytec-phycard-s-rdk-bb.dtb.o
 pbl-$(CONFIG_MACH_PCAAXL3) += imx6q-phytec-pbaa03.dtb.o
 pbl-$(CONFIG_MACH_PCM038) += imx27-phytec-phycore-rdk.dtb.o
 pbl-$(CONFIG_MACH_PCM051) += am335x-phytec-phycore.dtb.o
+pbl-$(CONFIG_MACH_PFLA03) += am335x-phytec-phyflex.dtb.o
 pbl-$(CONFIG_MACH_PHYTEC_PFLA02) += imx6s-phytec-pbab01.dtb.o imx6dl-phytec-pbab01.dtb.o imx6q-phytec-pbab01.dtb.o
 pbl-$(CONFIG_MACH_PLATHOME_OPENBLOCKS_AX3) += armada-xp-openblocks-ax3-4-bb.dtb.o
 pbl-$(CONFIG_MACH_RADXA_ROCK) += rk3188-radxarock.dtb.o
