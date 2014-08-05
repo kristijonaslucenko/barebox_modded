@@ -26,7 +26,7 @@ config MARVELL_PHY
 config MICREL_PHY
 	bool "Driver for Micrel PHYs"
 	---help---
-	  Supports the KSZ9021, VSC8201, KS8001 PHYs.
+	  Supports the KSZ9021, KSZ9031, VSC8201, KS8001 PHYs.
 
 config NATIONAL_PHY
 	bool "Driver for National Semiconductor PHYs"
