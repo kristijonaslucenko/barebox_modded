@@ -15,7 +15,8 @@
 #include <mach/wdt.h>
 #include <debug_ll.h>
 
-#define CLK_M_OSC_MHZ 	25
+#define DPLL_MULT	40
+#define DPLL_DIV 	1
 #define DDR_IOCTRL	0x18B
 
 static const struct am33xx_cmd_control pfla03_cmd = {
@@ -93,7 +94,8 @@ static noinline void pfla03_board_init(void)
 	while (readl(AM33XX_WDT_REG(WWPS)) != 0x0);
 
 	/* Setup PLLs and peripheral clocks */
-	am33xx_pll_init(MPUPLL_M_600, CLK_M_OSC_MHZ, DDRPLL_M_400);
+	/* clock multiplier, divider,*/
+	am33xx_pll_init(DPLL_MULT, DPLL_DIV, DDRPLL_M_400);
 /*	if (IS_ENABLED(CONFIG_256MB_MT41K128M16JT))
 		am335x_sdram_init(DDR_IOCTRL, &pfla03_cmd,
 		                  &MT41K128M16JT_256M_regs,
