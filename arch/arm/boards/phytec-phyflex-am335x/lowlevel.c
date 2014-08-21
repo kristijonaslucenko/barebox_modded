@@ -15,8 +15,8 @@
 #include <mach/wdt.h>
 #include <debug_ll.h>
 
-#define DPLL_MULT	40
-#define DPLL_DIV 	1
+#define DPLL_MULT	1
+#define DPLL_DIV 	25
 #define DDR_IOCTRL	0x18B
 
 static const struct am33xx_cmd_control pfla03_cmd = {
