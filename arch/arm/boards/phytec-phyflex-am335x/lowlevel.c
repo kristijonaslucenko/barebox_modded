@@ -15,7 +15,7 @@
 #include <mach/wdt.h>
 #include <debug_ll.h>
 
-#define DPLL_MULT	1
+#define DPLL_MULT	800
 #define DPLL_DIV 	25
 #define DDR_IOCTRL	0x18B
 
