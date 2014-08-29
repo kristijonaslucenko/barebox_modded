@@ -54,11 +54,11 @@
 
 	spi0_pins: pinmux_spi0_pins {
 		pinctrl-single,pins = <
-			0x150 (PIN_INPUT_PULLDOWN | MUX_MODE0)		/* spi0_sclk */
-			0x154 (PIN_INPUT_PULLDOWN | MUX_MODE0)		/* spi0_d0 miso */
-			0x158 (PIN_OUTPUT_PULLDOWN | MUX_MODE0)		/* spi0_d1 mosi */
-			0x15c (PIN_OUTPUT_PULLUP | MUX_MODE0)		/* spi0_cs0 */
-			0x160 (PIN_OUTPUT_PULLUP | MUX_MODE0)		/* spi0_cs1 */
+			0x150 (PIN_INPUT | MUX_MODE0)		/* spi0_sclk */
+			0x154 (PIN_INPUT | MUX_MODE0)		/* spi0_d0 miso */
+			0x158 (PIN_OUTPUT | MUX_MODE0)		/* spi0_d1 mosi */
+			0x15c (PIN_OUTPUT | MUX_MODE0)		/* spi0_cs0 */
+			0x160 (PIN_OUTPUT | MUX_MODE0)		/* spi0_cs1 */
 		>;
 	};
 
