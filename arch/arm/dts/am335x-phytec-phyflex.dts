@@ -209,13 +209,13 @@
 	and supports integer clock devisors*/
 	flash: m25p80 {
 		compatible = "spansion,s25fl064p", "m25p80";
-		spi-max-frequency = <48000000>;
+		spi-max-frequency = <6000000>;
 		reg = <0>;
 		#address-cells = <1>;
 		#size-cells = <1>;
 		m25p,fast-read;
-		#spi-cpha;
-		#spi-cpol;
+		/*spi-cpha;
+		spi-cpol;*/
 
 		partition@0 {
 			label = "xload";
