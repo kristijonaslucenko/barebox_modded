@@ -50,7 +50,7 @@ static int of_arm_init(void)
 		return 0;
 	}
 
-	printf("MUXING spi_sclk : 0x%08x\n",__raw_readl(AM33XX_CTRL_BASE + OFFSET(spi0_sclk)));
+	printf("MUXING eth clk : 0x%08x\n",__raw_readl(AM33XX_CTRL_BASE + OFFSET(mii1_txclk)));
 	printf("MUXING spi_d0 : 0x%08x\n",__raw_readl(AM33XX_CTRL_BASE + OFFSET(spi0_d0)));
 	printf("MUXING spi_d1 : 0x%08x\n",__raw_readl(AM33XX_CTRL_BASE + OFFSET(spi0_d1)));
 	printf("MUXING spi_cs0 : 0x%08x\n",__raw_readl(AM33XX_CTRL_BASE + OFFSET(spi0_cs0)));
