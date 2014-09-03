@@ -18,6 +18,9 @@
 #include <init.h>
 #include <of.h>
 #include <asm/barebox-arm.h>
+#include <mach/am33xx-silicon.h>
+#include <mach/am33xx-mux.h>
+#include <io.h>
 
 extern char __dtb_start[];
 
@@ -46,6 +49,11 @@ static int of_arm_init(void)
 		pr_debug("No DTB found\n");
 		return 0;
 	}
+
+	printf("MUXING spi_sclk : 0x%08x\n",__raw_readl(AM33XX_CTRL_BASE + OFFSET(spi0_sclk)));
+	printf("MUXING spi_d0 : 0x%08x\n",__raw_readl(AM33XX_CTRL_BASE + OFFSET(spi0_d0)));
+	printf("MUXING spi_d1 : 0x%08x\n",__raw_readl(AM33XX_CTRL_BASE + OFFSET(spi0_d1)));
+	printf("MUXING spi_cs0 : 0x%08x\n",__raw_readl(AM33XX_CTRL_BASE + OFFSET(spi0_cs0)));
 
 	root = of_unflatten_dtb(fdt);
 	if (root) {
