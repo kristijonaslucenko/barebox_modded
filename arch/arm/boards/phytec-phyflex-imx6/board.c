@@ -67,6 +67,11 @@ static int ksz9031rn_phy_fixup(struct phy_device *dev)
 {
 	phy_write_mmd_indirect(dev, 8, 2, 0x039F);
 
+	if(of_machine_is_compatible("phytec,imx6q-pbab02")) {
+		dev->supported = PHY_BASIC_FEATURES;
+		phy_write(dev, 0x9, 0x1C00);
+	}
+
 	return 0;
 }
 
