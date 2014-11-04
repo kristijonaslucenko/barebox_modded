@@ -34,6 +34,7 @@
 #include <xfuncs.h>
 #include <asm/mmu.h>
 #include <asm/system.h>
+#include <linux/err.h>
 
 #include <mach/cpsw.h>
 
