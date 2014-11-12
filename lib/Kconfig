@@ -37,6 +37,7 @@ config QSORT
 
 config XYMODEM
 	bool
+	select CRC16
 
 config LIBSCAN
 	bool
