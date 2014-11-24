@@ -102,6 +102,13 @@ ENTRY_FUNCTION(start_phytec_pbab01_1gib, r0, r1, r2)
 	start_imx6q_phytec_pbab01_common(SZ_1G);
 }
 
+ENTRY_FUNCTION(start_phytec_pbab01_1gib_1bank, r0, r1, r2)
+{
+	IMD_USED(phyflex_mx6_memsize_1G);
+
+	start_imx6q_phytec_pbab01_common(SZ_1G);
+}
+
 ENTRY_FUNCTION(start_phytec_pbab01_2gib, r0, r1, r2)
 {
 	IMD_USED(phyflex_mx6_memsize_2G);
