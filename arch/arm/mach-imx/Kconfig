@@ -237,6 +237,10 @@ config MACH_PCAAXL3
         bool "Phytec phyCARD-i.MX6 Quad"
         select ARCH_IMX6
 
+config MACH_PCM058
+	bool "Phytec phyCORE-i.MX6"
+	select ARCH_IMX6
+
 config MACH_PHYTEC_PFLA02
 	bool "Phytec phyFLEX-i.MX6"
 	select ARCH_IMX6
