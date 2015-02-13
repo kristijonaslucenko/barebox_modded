@@ -56,6 +56,7 @@ static inline void setup_uart(void)
 }
 
 extern char __dtb_imx6q_phytec_phycore_som_start[];
+extern char __dtb_imx6dl_phytec_phycore_som_start[];
 
 ENTRY_FUNCTION(start_phytec_phycore_imx6q_som_1gib, r0, r1, r2)
 {
@@ -71,4 +72,17 @@ ENTRY_FUNCTION(start_phytec_phycore_imx6q_som_1gib, r0, r1, r2)
 	fdt = __dtb_imx6q_phytec_phycore_som_start - get_runtime_offset();
 
 	barebox_arm_entry(0x10000000, SZ_1G, fdt);
+}
+
+ENTRY_FUNCTION(start_phytec_phycore_imx6dl_som_256mb, r0, r1, r2)
+{
+	void *fdt;
+
+	imx6_cpu_lowlevel_init();
+
+	arm_setup_stack(0x00920000 - 8);
+
+	fdt = __dtb_imx6dl_phytec_phycore_som_start - get_runtime_offset();
+
+	barebox_arm_entry(0x10000000, SZ_256M, fdt);
 }
