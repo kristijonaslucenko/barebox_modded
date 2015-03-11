@@ -1,7 +1,7 @@
 #define SETUP_MDCFG0			\
 	wm 32 0x021b000c 0x3c409b85
 
-#define SETUP_DL_256MB		\
+#define SETUP_MDASP_MDCTL		\
 	wm 32 0x021b0040 0x0000000F;	\
 	wm 32 0x021b0000 0x82190000
 
