@@ -38,6 +38,7 @@ static inline void setup_uart(void)
 	putc_ll('>');
 }
 
+BAREBOX_IMD_TAG_STRING(phycore_mx6_memsize_SZ_256M, IMD_TYPE_PARAMETER, "memsize=256", 0);
 BAREBOX_IMD_TAG_STRING(phycore_mx6_memsize_SZ_1G, IMD_TYPE_PARAMETER, "memsize=1024", 0);
 
 static void __noreturn start_imx6_phytec_common(uint32_t size,
@@ -68,5 +69,6 @@ static void __noreturn start_imx6_phytec_common(uint32_t size,
 					 __dtb_##fdt_name##_start);	\
 	}
 
+PHYTEC_ENTRY(start_phytec_phycore_imx6dl_som_nand_256mb, imx6dl_phytec_phycore_som_nand, SZ_256M, true);
 PHYTEC_ENTRY(start_phytec_phycore_imx6q_som_nand_1gib, imx6q_phytec_phycore_som_nand, SZ_1G, true);
 PHYTEC_ENTRY(start_phytec_phycore_imx6q_som_emmc_1gib, imx6q_phytec_phycore_som_emmc, SZ_1G, true);

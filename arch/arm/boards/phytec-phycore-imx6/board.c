@@ -29,7 +29,8 @@
 static int pcm058_device_init(void)
 {
 	if (!of_machine_is_compatible("phytec,imx6q-pcm058-nand") &&
-		!of_machine_is_compatible("phytec,imx6q-pcm058-emmc"))
+		!of_machine_is_compatible("phytec,imx6q-pcm058-emmc") &&
+		!of_machine_is_compatible("phytec,imx6dl-pcm058-nand"))
 		return 0;
 
 
