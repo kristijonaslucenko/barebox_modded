@@ -56,7 +56,7 @@
 	fsl,spi-num-chipselects = <1>;
 	cs-gpios = <&gpio4 24 0>;
 
-	flash: m25p80@0 {
+	flash: flash@0 {
 		compatible = "m25p80";
 		spi-max-frequency = <20000000>;
 		reg = <0>;
