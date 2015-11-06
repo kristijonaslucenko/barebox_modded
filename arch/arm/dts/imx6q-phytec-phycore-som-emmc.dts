@@ -34,7 +34,7 @@
 
 		ethphy: ethernet-phy@3 {
 			reg = <3>;
-			max-speed = <100>;
+			max-speed = <1000>;
 		};
 	};
 };
