@@ -2101,6 +2101,17 @@ config CMD_OF_ENABLE_NODE
 	  Options:
 		  path		Node path or alias
 
+config CMD_OF_CAMERA_SELECTION
+	tristate
+	select OFTREE
+	prompt "of_camera_selection"
+	help
+	  Selects a Phytec camera on the following boards
+	  - phyBOARD-SUBRA-i.MX6
+	  - phyFLEX-i.MX6
+	  - phyCARD-i.MX6
+	  - phyBOARD-MIRA-i.MX6
+
 config CMD_OFTREE
 	tristate
 	select OFTREE
