@@ -643,6 +643,9 @@ static inline struct device_node *of_find_node_by_path_or_alias(
 #define for_each_compatible_node(dn, type, compatible) \
 	for (dn = of_find_compatible_node(NULL, type, compatible); dn; \
 	     dn = of_find_compatible_node(dn, type, compatible))
+#define for_each_compatible_node_from(dn, type, compatible) \
+	for (dn = of_find_compatible_node(dn, type, compatible); dn; \
+	     dn = of_find_compatible_node(dn, type, compatible))
 static inline struct device_node *of_find_matching_node(
 	struct device_node *from,
 	const struct of_device_id *matches)
