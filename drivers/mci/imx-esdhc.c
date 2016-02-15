@@ -41,6 +41,10 @@
 
 #define IMX_SDHCI_WML		0x44
 #define IMX_SDHCI_MIXCTRL	0x48
+#define IMX_SDHCI_DLL_CTRL	0x60
+#define IMX_SDHCI_VEND_SPEC2	0xc8
+#define IMX_SDHCI_VEND_SPEC2_MASK	(BIT(2) | BIT(1))
+#define IMX_SDHCI_MIX_CTRL_FBCLK_SEL	(BIT(25))
 
 struct fsl_esdhc_host {
 	struct mci_host		mci;
@@ -472,6 +476,20 @@ static int esdhc_card_present(struct mci_host *mci)
 	return 0;
 }
 
+static void reset_reg_with_mask(struct fsl_esdhc_host *host, const char* name, u32 addr, u32 mask)
+{
+	void __iomem *regs = host->regs;
+	int val;
+
+	val = esdhc_read32(regs + addr);
+	if (val & mask) {
+		dev_warn(host->dev, "%s(0x%02x) was 0x%08x\n", name, addr , val);
+		val &= ~mask;
+		esdhc_write32(regs + addr, val);
+		dev_warn(host->dev, "%s(0x%02x) set to 0x%08x\n", name, addr, val);
+	}
+}
+
 static int esdhc_init(struct mci_host *mci, struct device_d *dev)
 {
 	struct fsl_esdhc_host *host = to_fsl_esdhc(mci);
@@ -520,6 +538,21 @@ static int esdhc_reset(struct fsl_esdhc_host *host)
 	/* reset the controller */
 	esdhc_write32(regs + SDHCI_CLOCK_CONTROL__TIMEOUT_CONTROL__SOFTWARE_RESET,
 			SYSCTL_RSTA);
+
+	/* Extra register reset for i.MX6 Solo/DualLite */
+	if (cpu_is_mx6()) {
+		/* Reset bit FBCLK_SEL */
+		reset_reg_with_mask(host, "IMX_SDHCI_MIXCTRL", IMX_SDHCI_MIXCTRL,
+						IMX_SDHCI_MIX_CTRL_FBCLK_SEL);
+
+		/* Reset register IMX_SDHCI_DLL_CTRL */
+		reset_reg_with_mask(host, "IMX_SDHCI_DLL_CTRL", IMX_SDHCI_DLL_CTRL,
+						0xffffffff);
+
+		/* Reset two bits in register VEND_SPEC2 */
+		reset_reg_with_mask(host, "IMX_SDHCI_VEND_SPEC2", IMX_SDHCI_VEND_SPEC2,
+						IMX_SDHCI_VEND_SPEC2_MASK);
+	}
 
 	start = get_time_ns();
 	/* hardware clears the bit when it is done */
