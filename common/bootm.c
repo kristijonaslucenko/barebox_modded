@@ -525,6 +525,7 @@ err_out:
 
 static int bootm_init(void)
 {
+	printf("Testing the stuff \n");
 	globalvar_add_simple("bootm.image", NULL);
 	globalvar_add_simple("bootm.image.loadaddr", NULL);
 	globalvar_add_simple("bootm.oftree", NULL);
